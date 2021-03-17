@@ -9,21 +9,12 @@ class Home extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('My girl friend'),
+        title: Text('Hi'),
         centerTitle: true,
         backgroundColor: Colors.orange,
       ),
       body: Center(
-        child: Text(
-            'Yo Yo Yo Yo Long',
-            style: TextStyle(
-                fontSize: 20.0,
-                fontWeight: FontWeight.bold,
-                letterSpacing: 2.0,
-                color: Colors.green,
-                fontFamily: 'IndieFlower'
-            )
-        ),
+        child: Image.asset('assets/image1.jpeg|')
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {},
