@@ -1,112 +1,62 @@
 import 'package:flutter/material.dart';
+import 'quote.dart';
 
 void main() => runApp(MaterialApp(
-  home: LongCard(),
+  home: QuoteList(),
 ));
 
-class LongCard extends StatefulWidget {
+
+
+class QuoteList extends StatefulWidget {
   @override
-  _LongCardState createState() => _LongCardState();
+  _QuoteListState createState() => _QuoteListState();
 }
 
-class _LongCardState extends State<LongCard> {
+class _QuoteListState extends State<QuoteList> {
 
-  int level = 0;
+  List<Quote> quotes = [
+    Quote(author: 'Long', text: 'Be yourself; everyone else is already taken'),
+    Quote(author: 'LTT', text: 'I have nothing to declare except my genius'),
+    Quote(author: 'Max', text: 'The truth is rarely pure and never simple')
+  ];
+
+  Widget quoteTemplate(quote) {
+    return Card(
+      margin: EdgeInsets.fromLTRB(16, 16, 0, 0),
+      child: Column(
+        children: [
+          Text(
+            quote.text,
+            style: TextStyle(
+              fontSize: 18,
+              color: Colors.grey[600],
+            )
+          ),
+          SizedBox(height: 6),
+          Text(
+            quote.author,
+            style: TextStyle(
+              fontSize: 18,
+              color: Colors.grey[600],
+            )
+          )
+        ],
+      )
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.orange[100],
+      backgroundColor: Colors.grey[200],
       appBar: AppBar(
-        title: Text('Long ID Card'),
+        title: Text('Awesome Quotes'),
         centerTitle: true,
-        backgroundColor: Colors.orangeAccent,
-        elevation: 0,
+        backgroundColor: Colors.redAccent,
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          setState(() {
-            level += 1;
-          });
-        },
-        child: Icon(Icons.add),
-        backgroundColor: Colors.green,
+      body: Column(
+        children: quotes.map((quote) => Text('${quote.text} - ${quote.author}')).toList(),
       ),
-      body: Padding(
-        padding: EdgeInsets.fromLTRB(30, 40, 30, 0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Center(
-              child: CircleAvatar(
-                backgroundImage: AssetImage('assets/image0.jpeg'),
-                radius: 40,
-              ),
-            ),
-            Divider(
-              height: 60,
-              color: Colors.lightBlue
-            ),
-            Text(
-              'NAME',
-              style: TextStyle(
-                color: Colors.blue,
-                letterSpacing: 2
-              )
-            ),
-            SizedBox(height: 10),
-            Text(
-                'Long',
-                style: TextStyle(
-                    color: Colors.redAccent,
-                    letterSpacing: 2,
-                    fontSize: 28,
-                    fontWeight: FontWeight.bold
-                )
-            ),
-            SizedBox(height: 30),
-            Text(
-                'LEVEL',
-                style: TextStyle(
-                    color: Colors.blue,
-                    letterSpacing: 2
-                )
-            ),
-            SizedBox(height: 10),
-            Text(
-                '$level',
-                style: TextStyle(
-                    color: Colors.redAccent,
-                    letterSpacing: 2,
-                    fontSize: 28,
-                    fontWeight: FontWeight.bold
-                )
-            ),
-            SizedBox(height: 30),
-            Row(
-              children: [
-                Icon(
-                  Icons.email,
-                  color: Colors.blueAccent,
-                ),
-                SizedBox(width: 5),
-                Text(
-                  'bql20000@gmail.com',
-                  style: TextStyle(
-                    color: Colors.blueAccent,
-                    fontSize: 18,
-                    letterSpacing: 1
-                  )
-                )
-              ],
-            )
-          ],
-        ),
-      )
     );
   }
 }
-
-
-
-
