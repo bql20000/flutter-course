@@ -4,7 +4,15 @@ void main() => runApp(MaterialApp(
   home: LongCard(),
 ));
 
-class LongCard extends StatelessWidget {
+class LongCard extends StatefulWidget {
+  @override
+  _LongCardState createState() => _LongCardState();
+}
+
+class _LongCardState extends State<LongCard> {
+
+  int level = 0;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -14,6 +22,15 @@ class LongCard extends StatelessWidget {
         centerTitle: true,
         backgroundColor: Colors.orangeAccent,
         elevation: 0,
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          setState(() {
+            level += 1;
+          });
+        },
+        child: Icon(Icons.add),
+        backgroundColor: Colors.green,
       ),
       body: Padding(
         padding: EdgeInsets.fromLTRB(30, 40, 30, 0),
@@ -49,7 +66,7 @@ class LongCard extends StatelessWidget {
             ),
             SizedBox(height: 30),
             Text(
-                'SCHOOL',
+                'LEVEL',
                 style: TextStyle(
                     color: Colors.blue,
                     letterSpacing: 2
@@ -57,7 +74,7 @@ class LongCard extends StatelessWidget {
             ),
             SizedBox(height: 10),
             Text(
-                'UET',
+                '$level',
                 style: TextStyle(
                     color: Colors.redAccent,
                     letterSpacing: 2,
@@ -89,6 +106,7 @@ class LongCard extends StatelessWidget {
     );
   }
 }
+
 
 
 
