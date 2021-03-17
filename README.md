@@ -1,4 +1,4 @@
-Coding lesions from the The Net Ninja Tutorial: \\
+Coding lesions from the The Net Ninja Tutorial: \
 https://www.youtube.com/playlist?list=PL4cUxeGkcC9jLYyp2Aoh6hcWuxFDX6PBJ
 
 
