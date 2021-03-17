@@ -13,27 +13,16 @@ class Home extends StatelessWidget {
         centerTitle: true,
         backgroundColor: Colors.orange,
       ),
-      body: Center(
-          // child: Icon(
-          //   Icons.wb_sunny_rounded,
-          //   color: Colors.green,
-          //   size: 50.0,
-          // ),
-          // child: RaisedButton.icon(
-          //   onPressed: () {
-          //     print('You clicked me');
-          //   },
-          //   icon: Icon(
-          //     Icons.mail,
-          //   ),
-          //   label: Text('mail me'),
-          //   color: Colors.lightBlue
-          // )
-          child: IconButton(
-            onPressed: () {},
-            icon: Icon(Icons.contact_mail),
-            color: Colors.amber,
-          )
+      // body: Container(
+      //   padding: EdgeInsets.fromLTRB(10, 20, 30, 40),
+      //   margin: EdgeInsets.all(30),
+      //   color: Colors.grey[400],
+      //   child: Text('Hello')
+      // ),
+      body: Padding(
+        padding: EdgeInsets.all(90),
+        // margin: EdgeInsets.all(30)   # error
+        child: Text('hello'),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {},
